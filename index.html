@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Aimee (Yunxi) Zeng</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌲</text></svg>">
+  <meta name="description"
+    content="Aimee (Yunxi) Zeng: machine learning and geospatial data science, aimed at conservation and climate.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top">Aimee Zeng</a>
+      <nav aria-label="Sections">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#outside">Outside work</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <canvas id="forest" aria-hidden="true"></canvas>
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <h1>Aimee Zeng<span class="given"></span></h1>
+          <p class="lede">I build machine learning models for environmental data, from rainfall fields and satellite
+            imagery to
+            land use, and I want that work to help conservation.</p>
+          <div class="links">
+            <a href="mailto:aimeezengyunxi@gmail.com">Email</a>
+            <a href="https://github.com/yunxiz">GitHub</a>
+            <a href="https://www.linkedin.com/in/yunxi-zeng-547527265/">LinkedIn</a>
+            <a href="assets/resume.pdf">Résumé</a>
+          </div>
+          <p class="open">Looking for full-time roles starting summer 2027 in machine learning, data science, and
+            geospatial work.</p>
+        </div>
+        <figure class="portrait">
+          <img src="assets/photo.jpg" alt="Portrait of Aimee (Yunxi) Zeng" width="500" height="620"
+            onerror="this.parentElement.classList.add('missing');this.remove()">
+          <span class="initials" aria-hidden="true">AZ</span>
+        </figure>
+      </div>
+      <button class="readout" type="button"
+        title="This forest refines in four 2× steps, like my precipitation downscaling model"
+        aria-label="Replay the forest refining from 25 kilometer to 1.56 kilometer grid spacing">
+        <span class="value">1.56 km</span>
+        <span class="note">refined like my downscaling model, click to replay</span>
+      </button>
+    </div>
+
+    <section id="experience">
+      <div class="wrap">
+        <h2>Experience</h2>
+
+        <article class="entry">
+          <div class="when">May – Sep 2026</div>
+          <div>
+            <h3>AI Engineer Intern, AI Team</h3>
+            <div class="org">GlobiFYE</div>
+            <p> Designed and implemented an AI Sales Intelligence Platform for sales reps to analyze caller intent and
+              deal signals across the full sales funnel using RAG, LangChain, Next.js, TypeScript, and PostgreSQL,
+              orchestrating automated inbound/outbound routing to an AI voice agent or human rep, live transcription,
+              and post-call semantic analysis for sales coaching. </p>
+            <ul>
+              <li>Benchmarked STT, LLM, and TTS providers against that budget across concurrent sessions.</li>
+              <li>Designed the Supabase schema and persistence layer for recordings, transcripts, and call analysis.
+              </li>
+              <li>Integrated SIP telephony so the pipeline handles live inbound and outbound phone calls, not just
+                browser sessions.</li>
+              <li>Moved the LLM layer from the Groq SDK to LangChain without changing any downstream callers.</li>
+            </ul>
+            <div class="stack">LangChain, Groq, Supabase, SIP telephony</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="when">Jan – May 2026</div>
+          <div>
+            <h3>Machine Learning Intern</h3>
+            <div class="org">Butterflo Inc.</div>
+            <p>Rent prediction on US large-scale rental property data.</p>
+            <ul>
+              <li>Built Python pipelines for data ingestion, model training, and inference.</li>
+              <li>Trained and tuned XGBoost models with Optuna and deployed the best one for inference.</li>
+              <li>Extended rent prediction from metro-level to cluster-level geographies for finer spatial granularity.
+              </li>
+            </ul>
+            <div class="stack">Python, XGBoost, Optuna</div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="when">May – Aug 2025</div>
+          <div>
+            <h3>Data Science Intern</h3>
+            <div class="org">AIA Group</div>
+            <ul>
+              <li>Built medical lapse and claims prediction models (random forest, GLM/logistic) reaching about 0.81
+                AUC.</li>
+              <li>Identified key risk drivers through hypothesis testing and turned them into risk scores to support
+                client retention.</li>
+              <li>Built an R Shiny app for liability cash-flow replication that optimizes asset weights under risk
+                constraints.</li>
+            </ul>
+            <div class="stack">R, Shiny, random forest, GLM</div>
+          </div>
+        </article>
+
+        <section id="projects">
+          <div class="wrap">
+            <h2>Projects</h2>
+
+            <article class="entry">
+              <div class="when">Jan – June 2026</div>
+              <div>
+                <h3>Climate downscaling with foundation embeddings</h3>
+                <div class="org">Machine learning research</div>
+                <p> Built a probabilistic model that downscales ERA5 25&nbsp;km precipitation grid to 1.5&nbsp;km in
+                  four recursive 2× steps, using AlphaEarth satellite embeddings. </p>
+                <ul>
+                  <li>Developed a Conditional Flow Matching model (U-Net with cross-attention) and XGBoost baselines
+                    that
+                    produce calibrated ensembles rather than a single guess.</li>
+                  <li>Engineered a pipeline joining ERA5/ERA5-Land, PRISM, and a 400&nbsp;GB+ embedding store streamed
+                    from
+                    cloud storage, with multi-phase training on NCSA Delta AI.</li>
+                  <li>Evaluated with RMSE, CRPS, coverage, and spread-skill against 800&nbsp;m PRISM observations.</li>
+                </ul>
+                <div class="stack">PyTorch, Google Earth Engine, xarray/Zarr, Slurm on HPC</div>
+                <div class="figs">
+                  <figure>
+                    <a href="assets/projects/downscaling-1.jpg"><img src="assets/projects/downscaling-1.jpg"
+                        alt="Precipitation at 25 km next to the model's 1.5 km output" loading="lazy"
+                        onerror="this.closest('figure').remove()"></a>
+                    <figcaption>25&nbsp;km input next to the 1.5&nbsp;km output</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="entry">
+              <div class="when">2026<span class="status">In progress</span></div>
+              <div>
+                <h3>Biodiversity-aware solar siting</h3>
+                <div class="org">Personal project, Texas and Oklahoma</div>
+                <p>Solar farms need a lot of open land, and the cheapest land isn't always the land wildlife can spare.
+                  This
+                  tool picks sites that balance energy against habitat cost across seven wildlife guilds, formulated as
+                  a
+                  binary integer program on a 1&nbsp;km grid. A second phase will add deep learning forecasts of
+                  land-use
+                  change.</p>
+                <div class="stack">Python, integer programming, Streamlit</div>
+                <div class="figs">
+                  <figure>
+                    <a href="assets/projects/solar-siting-1.jpg"><img src="assets/projects/solar-siting-1.jpg"
+                        alt="Map of candidate solar sites in Texas and Oklahoma" loading="lazy"
+                        onerror="this.closest('figure').remove()"></a>
+                    <figcaption>Candidate sites and habitat cost</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+            <article class="entry">
+              <div class="when">Fall 2026<span class="status">In progress</span></div>
+              <div>
+                <h3>Multisensor remote sensing for cover crop biomass</h3>
+                <div class="org">Course project, team of four</div>
+                <p>Cover crops protect Midwest soil over winter, but measuring how much they grew means clipping plots
+                  by
+                  hand. We estimate biomass from Sentinel-2/HLS optical imagery, Sentinel-1 radar, proximal sensor
+                  readings,
+                  and PRISM climate data, trained against ground samples from the Great Lakes Cover Crops Project.</p>
+                <div class="stack">Sentinel-1 SAR, Sentinel-2/HLS, PRISM</div>
+              </div>
+            </article>
+
+            <article class="entry">
+              <div class="when">Jun 2025 – now</div>
+              <div>
+                <h3>Causal effects of phthalate exposures</h3>
+                <div class="org">Undergraduate statistics research</div>
+                <p>People are exposed to several phthalates at once, at different levels, and the exposures interact. I
+                  work
+                  on estimating how those combinations affect middle aged women's menopausal hot flashes from
+                  observational data.</p>
+                <ul>
+                  <li>Applied factorial balancing weights to estimate causal main and interaction effects.</li>
+                  <li>Developed a framework for multi-level factors and extended it to incomplete designs, where some
+                    treatment combinations are never observed.</li>
+                  <li>Validated the framework with simulation and bootstrap inference.</li>
+                </ul>
+                <div class="stack">R, causal inference, factorial design</div>
+              </div>
+            </article>
+
+            <article class="entry">
+              <div class="when">2021</div>
+              <div>
+                <h3>Deforestation and carbon sequestration at Baima Snow Mountain</h3>
+                <div class="org">First-author paper, Atlantis Press (ICHESS 2021)</div>
+                <p> I did research on Yunnan snub-nosed monkey, an endangered primate, whose habitat was
+                  losing
+                  in the Baima Snow Mountain Nature Reserve. I interviewed villagers and the reserve's
+                  guards, then mapped the reserve in QGIS and found deforested land inside the core zone, the part
+                  that's
+                  supposed to be the most protected.</p>
+                <ul>
+                  <li>Located three deforested patches in the core zone, 0.674&nbsp;km² in total, from satellite imagery
+                    in
+                    QGIS.</li>
+                  <li>Combined GlobBiomass forest biomass data with carbon storage estimates for cold-temperate
+                    coniferous
+                    forest to estimate what reforesting those patches could sequester: about 4,800 tons of CO₂.</li>
+                  <li>Priced that carbon on China's new national carbon market at roughly 239,000 RMB, as a way to fund
+                    reforestation and the reserve's underpaid guards.</li>
+                </ul>
+                <div class="stack">QGIS, GlobBiomass, satellite imagery. <a
+                    href="https://www.atlantis-press.com/proceedings/ichess-21/125967065">Read the paper</a></div>
+                <div class="figs">
+                  <figure>
+                    <a href="assets/projects/1baima-deforested-patches.jpg"><img
+                        src="assets/projects/1baima-deforested-patches.jpg"
+                        alt="Map of the Baima Snow Mountain reserve boundary with three deforested patches outlined in red"
+                        loading="lazy" onerror="this.closest('figure').remove()"></a>
+                    <figcaption>Three deforested patches inside the reserve</figcaption>
+                  </figure>
+                  <figure>
+                    <a href="assets/projects/1baima-carbon-map.jpg"><img src="assets/projects/1baima-carbon-map.jpg"
+                        alt="Carbon sequestration map across the Baima Snow Mountain reserve" loading="lazy"
+                        onerror="this.closest('figure').remove()"></a>
+                    <figcaption>Carbon sequestration across the reserve</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+
+
+            <div class="earlier">
+              <div>
+                <h3>Bird Viewer</h3>
+                <p>A bird sighting platform with a MySQL database and Django REST API: full CRUD, search, and
+                  location-based
+                  recommendations, with stored procedures and triggers handling account deletion and group lifecycles.
+                </p>
+                <div class="stack">Jan – Apr 2025. MySQL, Django</div>
+              </div>
+              <div>
+                <h3>Hermes</h3>
+                <p>A Django and React platform for real-time financial data, with authentication and interactive charts
+                  for
+                  equities, crypto, and economic indicators.</p>
+                <div class="stack">Aug – Dec 2024. Django, React, Chart.js</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <h3 class="subhead">Volunteering</h3>
+        <article class="entry">
+          <!-- TODO: replace with your dates, e.g. "Mar 2026 – now" -->
+          <div class="when todo"> May - Sep 2026 </div>
+          <div>
+            <h3>Web Developer</h3>
+            <div class="org">EyeSpy.org</div>
+            <p>EyeSpy serves the blind and low-vision community, and like most small nonprofits it runs on grants. I
+              helped build a website that puts the whole grant workflow in one place: searching for grants, applying,
+              and drafting proposals.</p>
+            <!-- TODO: add a stack line, e.g. <div class="stack">React, Supabase</div> -->
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <h2>Skills</h2>
+        <dl class="skills">
+          <dt>Languages</dt>
+          <dd>Python, R, SQL, Java, C++</dd>
+          <dt>ML and statistics</dt>
+          <dd>PyTorch, XGBoost, scikit-learn, Optuna, causal inference, hypothesis testing</dd>
+          <dt>Geospatial</dt>
+          <dd>QGIS, Google Earth Engine, TorchGeo, rasterio, GeoPandas, GDAL, xarray/Zarr</dd>
+          <dt>Data and infrastructure</dt>
+          <dd>Spark, MySQL, Supabase, Django, LangChain, Git, Slurm on NCSA Delta AI</dd>
+          <dt>Education</dt>
+          <dd>UIUC, M.C.S. expected May 2027; B.S. Statistics &amp; Computer Science 2025, GPA 3.93</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section id="outside">
+      <div class="wrap">
+        <h2>Outside of work</h2>
+
+        <div class="outdoors">
+          <div class="outdoors-text">
+            <h3>Outdoors</h3>
+            <p>I love hiking and exploring nature trails.</p>
+          </div>
+
+          <div class="slider" data-slider>
+            <div class="slides" tabindex="0" role="region" aria-label="Outdoor photos, use arrow keys to browse">
+              <figure class="slide">
+                <img src="assets/hobbies/me.jpg" alt="Me hiking in the Xishuangbanna rainforest">
+                <figcaption>Me hiking in the Xishuangbanna rainforest.</figcaption>
+              </figure>
+              <!-- TODO: add your photos and a sentence for each; slides with missing files hide themselves -->
+              <figure class="slide">
+                <img src="assets/hobbies/river.jpeg" alt="Describe photo 2">
+                <figcaption></figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="assets/hobbies/tree.jpg" alt="Describe photo 3">
+                <figcaption></figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="assets/hobbies/baima_snow_mountain.jpeg" alt="Baima Snow Mountain">
+                <figcaption>Hiking at Baima Snow Mountain</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="assets/hobbies/snob-nosed_monkey2.jpeg" alt="Snub-nosed Monkey">
+                <figcaption>Observing a Snub-nosed Monkey in its natural habitat.</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="assets/hobbies/snob-nosed_monkey3.jpeg" alt="Snub-nosed Monkey">
+                <figcaption>Another encounter with a Snub-nosed Monkey.</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="assets/hobbies/mushrooms.jpeg" alt="Mushrooms">
+                <figcaption>Mushrooms I found during my hike.</figcaption>
+              </figure>
+            </div>
+            <button class="prev" type="button" aria-label="Previous photo">&larr;</button>
+            <button class="next" type="button" aria-label="Next photo">&rarr;</button>
+            <span class="count" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="life">
+          <div class="slot">
+            <h3>Reading</h3>
+            <p>I love reading science fiction, non-fiction and history books.
+            </p>
+          </div>
+          <div class="slot">
+            <h3>Playing Guitar</h3>
+            <p>I enjoy playing the guitar, exploring different genres and techniques.</p>
+          </div>
+          <div class="slot">
+            <!-- TODO: your third hobby -->
+            <h3>Making handmade crafts</h3>
+            <p>I enjoy creating handmade crafts, they calm my mind when I am feeling stressed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Aimee Zeng, Champaign, Illinois. Updated October 2026.</span>
+      <span class="links">
+        <a href="mailto:aimeezengyunxi@gmail.com">Email</a>
+        <a href="https://github.com/yunxiz">GitHub</a>
+        <a href="https://www.linkedin.com/in/yunxi-zeng-547527265/">LinkedIn</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="slider.js"></script>
+</body>
+
+</html>
